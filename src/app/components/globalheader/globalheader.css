@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: gray;
+  margin: 0;
+}
+
+#menu-hamburguer {
+  align-content: center;
+}
+
+.barra-menu {
+  width: 50px;
+  height: 6px;
+  margin: 5px;
+  border-radius: 7px;
+  background-color: black;
+}

@@ -1,2 +1,11 @@
 <app-globalheader></app-globalheader>
 <p>home works!</p>
+
+  @for (item of articles; track item.title) {
+  <app-thumbnail [article]="item"></app-thumbnail>
+}
+
+@for(item of titles; track titles){
+    <h3>{{item}}</h3>
+  }
+

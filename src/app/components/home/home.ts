@@ -1,42 +1,32 @@
 import { Component } from '@angular/core';
 import { Globalheader } from '../globalheader/globalheader';
 import { RouterModule } from '@angular/router';
-import { ArticlaModel } from '../models/articleModel';
-import { Teste } from '../articles/teste/teste';
 import { Thumbnail } from '../thumbnail/thumbnail';
 import { Posts } from '../../services/posts/posts';
-import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, Globalheader, Thumbnail, HttpClientModule],
+  imports: [RouterModule, Globalheader, HttpClientModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
 
-  articles: ArticlaModel[] = [];
-
   titles: string[] = [];
 
-  constructor(post: Posts) {
-    console.log(this.articles)
-
-    let result: Observable<string[]> = post.getAllTitle();
-
-    result.subscribe(results => {
-      results.forEach(title => this.titles.push(title));
-    });
+  constructor(private post: Posts) {
+    this.addTitlesInArrayOfTitles();
   }
 
-  addArticle(article: ArticlaModel) {
-    console.log("addArticle foi chamado");
-    this.articles.push(article);
+  addTitlesInArrayOfTitles() {
+    let result: Promise<string[]> = this.post.getAllTitles();
+
+    result.then(data => data.forEach(title => this.titles.push(title)));
   }
 
-  addTitles() {
-
+  toPost(title: string) {
+    this.post.getPostToRedirect(title);
   }
 }

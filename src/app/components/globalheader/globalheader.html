@@ -1,6 +1,5 @@
 <header>
-
-  <div id="menu-hamburguer">
+  <div id="menu-hamburguer" (click)="openDrawer()">
     <div class="barra-menu"></div>
     <div class="barra-menu"></div>
     <div class="barra-menu"></div>
@@ -10,3 +9,14 @@
 
   <h3 id="domain">devleo.com</h3>
 </header>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="over">
+    <mat-nav-list>
+      <a mat-list-item (click)="callHome()">
+        <mat-icon>home</mat-icon>
+        Início
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>

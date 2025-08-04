@@ -13,7 +13,7 @@ export class PageBlog implements OnInit {
 
   post!: PostDoc;
 
-  constructor(private router: Router, private redirector: Redirector) {
+  constructor(private redirector: Redirector) {
   }
 
   ngOnInit(): void {

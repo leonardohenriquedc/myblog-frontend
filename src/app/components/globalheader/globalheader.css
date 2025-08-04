@@ -22,3 +22,7 @@ header {
 #domain {
   margin-right: 20px;
 }
+
+.sidenav-container {
+  position: initial;
+}

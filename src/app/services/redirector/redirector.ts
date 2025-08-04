@@ -21,4 +21,8 @@ export class Redirector {
   redirectToError() {
     this.router.navigate(["error"]);
   }
+
+  redirectToHome() {
+    this.router.navigate(["home"])
+  }
 }

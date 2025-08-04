@@ -1,13 +1,15 @@
 <app-globalheader></app-globalheader>
 
-<article>
+<article id="mother">
+<article id="child" >
 @for(item of titles; track titles){
     <h3>
       <a (click)="toPost(item)">
-        {{item}}
+       &#8584; {{item}}
       </a>
     </h3>
   }
 
+</article>
 </article>
 

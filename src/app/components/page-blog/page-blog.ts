@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Redirector } from '../../services/redirector/redirector';
 import { Globalheader } from '../globalheader/globalheader';
@@ -13,7 +13,9 @@ export class PageBlog implements OnInit {
 
   post!: PostDoc;
 
-  constructor(private redirector: Redirector) {
+
+
+  constructor(private redirector: Redirector, private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class PageBlog implements OnInit {
     }
 
     this.post = post;
+
+    const style = this.renderer.createElement('style');
+    style.innerHTML = post.styleBody;
+    this.renderer.appendChild(document.head, style);
   }
 }

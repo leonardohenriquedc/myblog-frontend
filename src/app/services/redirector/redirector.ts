@@ -23,6 +23,10 @@ export class Redirector {
   }
 
   redirectToHome() {
-    this.router.navigate(["home"])
+    this.router.navigate(["home"]);
+  }
+
+  redirectToInsertNewBlog() {
+    this.router.navigate(["newblog"]);
   }
 }

@@ -1,0 +1,9 @@
+<app-globalheader></app-globalheader>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <input placeholder="Email" formControlName="email">
+    <input placeholder="Senha" formControlName="password">
+  </div>
+  <button type="submit">Enviar</button>
+</form>

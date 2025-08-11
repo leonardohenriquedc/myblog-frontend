@@ -26,7 +26,7 @@ export class Redirector {
     this.router.navigate(["home"]);
   }
 
-  redirectToInsertNewBlog() {
-    this.router.navigate(["newblog"]);
+  redirectToInsertNewBlog(token: string) {
+    this.router.navigate(["newblog"], { state: { token: token } });
   }
 }

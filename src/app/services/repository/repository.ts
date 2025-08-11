@@ -32,7 +32,7 @@ export class Repository {
   }
 
   async toLogin(authLogin: AuthLogin): Promise<string> {
-    let token: string = await firstValueFrom(this.http.post<string>(`${this.apiUrl}/root/login`, authLogin, {
+    let token: string = await firstValueFrom(this.http.post<string>(`${this.apiUrl}root/login`, authLogin, {
       headers: {
         'Content-Type': 'application/json'
       }

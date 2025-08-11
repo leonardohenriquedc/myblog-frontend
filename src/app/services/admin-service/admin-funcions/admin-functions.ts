@@ -16,14 +16,17 @@ export class AdminFunctions {
 
   toLogin(authLogin: AuthLogin) {
 
-    if (authLogin.email === null || authLogin.password === null) {
+    if (authLogin.email === '' || authLogin.password === '') {
       throwError("Email ou login vazios");
     }
 
-    let tokenP: Promise<string> = this.repository.toLogin(authLogin);
-
-    tokenP.then(value => this.redirector.redirectToInsertNewBlog())
-      .catch(value => this.redirector.redirectToError());
+    try {
+      this.repository.toLogin(authLogin);
+      this.redirector.redirectToInsertNewBlog();
+    } catch (error) {
+      console.log("Deu ruim", error);
+      this.redirector.redirectToError();
+    }
   }
 
   createUser(authLoginC: AuthLogin) {
